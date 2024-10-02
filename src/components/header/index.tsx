@@ -19,7 +19,7 @@ export const Header = () => {
   }, [])
 
   return (
-    <header className="flex items-center justify-between border-b border-solid p-4">
+    <header className="sticky top-0 flex items-center justify-between border-b border-solid bg-white p-4">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon">
