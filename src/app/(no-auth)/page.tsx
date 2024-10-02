@@ -46,6 +46,10 @@ export default function Auth() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
   })
 
   const handleSubmit = form.handleSubmit(async (data: FormValues) => {
@@ -101,8 +105,61 @@ export default function Auth() {
   })
 
   return (
-    <div className="flex h-full items-center justify-center bg-primary px-4">
-      <div className="w-full rounded-md bg-white px-2 py-3">
+    <div className="flex h-full items-center justify-center bg-primary px-4 lg:grid lg:grid-cols-login-layout lg:bg-white lg:px-0">
+      <div className="w-full max-w-96 rounded-md bg-white px-2 py-3 lg:hidden">
+        <h1 className="mb-3 text-center text-3xl font-bold">
+          trainer<span className="text-primary">.dev</span>
+        </h1>
+        <Form {...form}>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>E-mail</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="Ex: johnDoe@smn.com.br"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Senha</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="Ex: 123456"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button className="mt-2 w-full">
+              {isLoadingAuth ? (
+                <LoaderCircleIcon className="animate-spin" />
+              ) : (
+                'Entrar'
+              )}
+            </Button>
+          </form>
+        </Form>
+      </div>
+
+      <div className="hidden min-h-screen bg-primary lg:block" />
+      <div className="hidden w-[27.5rem] px-5 lg:block">
         <h1 className="mb-3 text-center text-3xl font-bold">
           trainer<span className="text-primary">.dev</span>
         </h1>

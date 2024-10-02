@@ -10,7 +10,12 @@ interface NoAuthLayoutProps {
 
 const NoAuthLayout = ({ children }: NoAuthLayoutProps) => {
   const token = parseCookies()[process.env.NEXT_PUBLIC_TOKEN as string]
-  const user = getUserLocalStorage()
+  let user = null
+
+  if (typeof window !== 'undefined') {
+    user = getUserLocalStorage()
+  }
+
   const router = useRouter()
 
   if (token && user) {
