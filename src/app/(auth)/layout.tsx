@@ -13,7 +13,9 @@ const AuthLayout = ({ children }: NoAuthLayoutProps) => {
   const router = useRouter()
 
   if (!token) {
-    removeUserLocalStorage()
+    if (typeof window !== 'undefined') {
+      removeUserLocalStorage()
+    }
     router.push('/')
   }
 

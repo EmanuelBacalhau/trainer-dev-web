@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       gridTemplateColumns: {
         'login-layout': '1fr min-content',
+        'dashboard-layout': 'min-content 1fr',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
