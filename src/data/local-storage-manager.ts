@@ -10,6 +10,7 @@ export function setUserLocalStorage(value: UserLocalStorage) {
 export function getUserLocalStorage(): UserLocalStorage | null {
   const NAME_OF_DATA_USER_LOCAL_STORAGE = process.env
     .NEXT_PUBLIC_DATA_USER as string
+
   const user = localStorage.getItem(NAME_OF_DATA_USER_LOCAL_STORAGE)
 
   return user ? JSON.parse(user) : null
