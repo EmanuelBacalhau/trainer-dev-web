@@ -11,6 +11,8 @@ const config: Config = {
     extend: {
       gridTemplateColumns: {
         'login-layout': '1fr min-content',
+      },
+      gridTemplateRows: {
         'dashboard-layout': 'min-content 1fr',
       },
       backgroundImage: {

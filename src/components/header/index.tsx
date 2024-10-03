@@ -13,6 +13,7 @@ import Link from 'next/link'
 
 export const Header = () => {
   const [user, setUser] = useState<UserLocalStorageData | null>(null)
+  const userNavs = navs[user?.role.toLocaleLowerCase() as keyof typeof navs]
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -37,13 +38,11 @@ export const Header = () => {
       </h1>
 
       <div className="hidden items-center gap-4 xl:flex">
-        {navs[user?.role.toLocaleLowerCase() as keyof typeof navs]?.map(
-          (nav, index) => (
-            <Button key={index} variant="ghost" className="text-base" asChild>
-              <Link href={nav.href}>{nav.label}</Link>
-            </Button>
-          ),
-        )}
+        {userNavs?.map((nav, index) => (
+          <Button key={index} variant="ghost" className="text-base" asChild>
+            <Link href={nav.href}>{nav.label}</Link>
+          </Button>
+        ))}
       </div>
 
       {user && user.avatar && (

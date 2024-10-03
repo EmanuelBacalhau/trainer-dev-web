@@ -1,5 +1,6 @@
 'use client'
 
+import { Header } from '@/components/header'
 import { removeUserLocalStorage } from '@/data/local-storage-manager'
 import { useRouter } from 'next/navigation'
 import { parseCookies } from 'nookies'
@@ -13,12 +14,19 @@ const AuthLayout = ({ children }: NoAuthLayoutProps) => {
   const router = useRouter()
 
   if (!token) {
+    router.push('/')
+
     if (typeof window !== 'undefined') {
       removeUserLocalStorage()
     }
-    router.push('/')
   }
 
-  return <div className="h-full">{children}</div>
+  return (
+    <div className="flex flex-col gap-5">
+      <Header />
+
+      {children}
+    </div>
+  )
 }
 export default AuthLayout

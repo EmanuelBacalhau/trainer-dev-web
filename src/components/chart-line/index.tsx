@@ -37,7 +37,7 @@ export const ChartLine = ({
   const key = Object.keys(config)[0]
 
   return (
-    <Card className="flex-1">
+    <Card className="flex flex-col justify-between">
       <CardHeader>
         <CardTitle className="capitalize">{title}</CardTitle>
       </CardHeader>
@@ -49,6 +49,7 @@ export const ChartLine = ({
             margin={{
               left: 16,
               right: 16,
+              top: 16,
             }}
           >
             <CartesianGrid vertical={false} />
