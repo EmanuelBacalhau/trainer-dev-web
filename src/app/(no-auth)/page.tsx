@@ -105,8 +105,8 @@ export default function Auth() {
   })
 
   return (
-    <div className="flex h-full items-center justify-center bg-primary px-4 lg:grid lg:grid-cols-login-layout lg:bg-white lg:px-0">
-      <div className="w-full max-w-96 rounded-md bg-white px-2 py-3 lg:hidden">
+    <div className="flex h-full items-center justify-center bg-primary px-4 lg:grid lg:grid-cols-login-layout lg:bg-background lg:px-0">
+      <div className="w-full max-w-96 rounded-md bg-background px-2 py-3 lg:hidden">
         <h1 className="mb-3 text-center text-3xl font-bold">
           trainer<span className="text-primary">.dev</span>
         </h1>
